@@ -62,6 +62,11 @@ var app = angular
         controller: 'UsershowCtrl',
         controllerAs: 'userShow'
       })
+      .when('/rides', {
+        templateUrl: 'views/rides.html',
+        controller: 'RidesCtrl',
+        controllerAs: 'rides'
+      })
       .otherwise({
         redirectTo: '/'
       });
