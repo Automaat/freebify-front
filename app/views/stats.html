@@ -4,6 +4,7 @@
     <li class="active"><a data-toggle="tab" data-target="#menu2">Savings</a></li>
     <li><a data-toggle="tab" data-target="#menu1">Success comparison</a></li>
     <li><a data-toggle="tab" data-target="#menu0">Top users</a></li>
+    <li><a data-toggle="tab" data-target="#menu3">Freebie Statistic</a></li>
   </ul>
 
   <div class="tab-content">
@@ -28,7 +29,7 @@
     </div>
     <div id="menu1" class="tab-pane fade">
       <div>
-        <highchart id="chart1" config="chartConfig"></highchart>
+        <highchart config="chartConfig"></highchart>
       </div>
     </div>
     <div id="menu2" class="tab-pane fade in active">
@@ -38,6 +39,11 @@
         They consumed <strong>{{distanceStats.fuel}}</strong> liters of fuel and They spend <strong>{{distanceStats.price}}</strong> zlotych. <br>
         But what is most important they saved <strong>{{distanceStats.saved}}</strong> zlotych and <strong>{{distanceStats.savedFuel}}</strong> liters of fuel.
       </p>
+      </div>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <div class="top-buffer">
+        <highchart config="pieChartConfig"></highchart>
       </div>
     </div>
   </div>

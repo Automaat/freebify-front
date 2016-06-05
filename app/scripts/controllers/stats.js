@@ -8,7 +8,7 @@
  * Controller of the freebifyApp
  */
 angular.module('freebifyApp')
-  .controller('StatsCtrl', function (highchartsNG, $scope, $http, serverAddress) {
+  .controller('StatsCtrl', function (highchartsNG, $scope, $http, serverAddress, $rootScope) {
 
     $http.get(serverAddress + '/api/statistics/distance_stats/')
       .then(function (response) {
@@ -26,12 +26,60 @@ angular.module('freebifyApp')
         toastr.error(response.data.errDescr);
       });
 
+    $http.get(serverAddress + '/api/statistics/freebie_statistics/')
+      .then(function (response) {
+        $scope.pieChartData = response.data;
+
+        $rootScope.pieChartConfig = {
+          renderTo: "container",
+          chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+          },
+          title: {
+            text: ''
+          },
+          // tooltip: {
+          //   pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          // },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+              }
+            }
+          },
+          series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+              name: 'Paying users',
+              y: $scope.pieChartData.payingUsers
+            }, {
+              name: 'Freebies',
+              y: $scope.pieChartData.freebieUser,
+              sliced: true,
+              selected: true
+            }],
+            type: "pie"
+          }]
+        }
+      });
+
     $http.get(serverAddress + '/api/statistics/success_compare/')
       .then(function (response) {
         $scope.chartData = response.data;
 
         $scope.chartConfig = {
-
+          renderTo: "container",
           options: {
             //This is the Main Highcharts chart config. Any Highchart options are valid here.
             //will be overriden by values specified below.
@@ -99,6 +147,7 @@ angular.module('freebifyApp')
       }, function () {
         toastr.error(response.data.errDescr);
       });
+
 
 
   });
