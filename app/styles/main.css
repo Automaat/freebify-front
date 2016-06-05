@@ -81,3 +81,10 @@ body {
     border-bottom: 0;
   }
 }
+
+.top-buffer { margin-top:20px; }
+
+#new_panel {
+  border: 0px;
+}
+

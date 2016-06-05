@@ -1,0 +1,40 @@
+<div align="left">
+
+  <div class="row">
+    <div class="col-md-4"><img src="images/ride.png" class="img-circle" width="200" height="200"></div>
+    <div class="row">
+      <div class="col-md-7"><h4><strong>{{offer.id}}</strong></h4></div>
+      <div class="col-md-5">{{event.date | date:'yyyy-MM-dd HH:mm'}}</div>
+      <div class="col-md-5">{{event.place}}</div>
+      <div class="col-md-5" align="right">
+      </div>
+    </div>
+
+  </div>
+  <div class="row top-buffer row-eq-height">
+    <div class="col-md-4">
+      <ul class="nav nav-pills nav-stacked" id="myTab">
+        <li role="presentation" class="active"><a data-target="#description" data-toggle="tab">About Offer</a></li>
+        <li role="presentation"><a data-target="#map" data-toggle="tab" ng-click="map.show=true">Map</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <div class="tab-content panel" id="new_panel">
+        <div class="tab-pane active" id="description">
+          <p>Ride date: {{offer.rideTime}} </p>
+          <p>Seats: {{offer.seats}} </p>
+          <p> <a ng-href="#/userShow/{{offer.ownerId}}">Owner id: {{offer.ownerId}} </a></p>
+        </div>
+        <div class="tab-pane" id="map" ng-if="map.show"><ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+          <ui-gmap-marker coords="marker.coords" idKey="marker.id">
+          </ui-gmap-marker>
+        </ui-gmap-google-map></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-lg btn-primary pull-right" role="button" ng-click="joinEvent(event)" ng-show="user != event.ownerName">Join event</button>
+    </div>
+  </div>
+</div>

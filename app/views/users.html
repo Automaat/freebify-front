@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="input-group">
+  <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
+      <span class="input-group-btn">
+        <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+      </span>
+</div>
+</div>
+<div class="row top-buffer">
+  <a ng-repeat="user in usersServ | filter:searchText" ng-href="/#/userShow/{{user.id}}" class="list-group-item">
+    <div class="row con">
+      <div class="col-md-3"><img src="images/Icon-user.png" class="img-circle" width="50" height="50" align="left"></div>
+      <div class="col-md-9">
+        <div class="row"><div class="col-md-6 " align="left"> <h4 class="list-group-item-heading">{{user.nick}}</h4></div></div>
+      </div>
+    </div>
+  </a>
+</div>

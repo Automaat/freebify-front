@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="container col-md-6 col-md-offset-3" ng-show="!authenticated">
+
+    <form class="form-signin" ng-submit="loginCtr.login()">
+      <h2 class="form-signin-heading" align="center">Please sign in</h2>
+      <label for="inputUser" class="sr-only">User name</label>
+      <input type="text" id="inputUser" class="form-control" placeholder="User name" required="" autofocus="" ng-model="loginCtr.credentials.nick">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="loginCtr.credentials.password">
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+  </div>
+
+  <div ng-show="authenticated" class="jumbotron">
+    <h2>
+      Logged to Freebify admin panel
+    </h2>
+  </div>
+
+</div>
+
