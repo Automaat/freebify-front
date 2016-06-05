@@ -1,0 +1,39 @@
+<div align="left">
+
+  <div class="row">
+    <div class="col-md-4"><img src="images/ride.png" class="img-circle" width="200" height="200"></div>
+    <div class="row">
+      <div class="col-md-7"><h4><strong>{{ride.id}}</strong></h4></div>
+      <div class="col-md-5">{{ride.rideTime}}</div>
+      <div class="col-md-5" align="right">
+      </div>
+    </div>
+
+  </div>
+  <div class="row top-buffer row-eq-height">
+    <div class="col-md-4">
+      <ul class="nav nav-pills nav-stacked" id="myTab">
+        <li role="presentation" class="active"><a data-target="#description" data-toggle="tab">About Ride</a></li>
+        <li role="presentation"><a data-target="#map" data-toggle="tab">Map</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <div class="tab-content panel" id="new_panel">
+        <div class="tab-pane active" id="description">
+          <p>Ride date: {{ride.rideTime}} </p>
+          <p>Passengers:</p>
+          <ul>
+            <li ng-repeat="passenger in ride.passengers">{{passenger.firstName + " " + passenger.lastName}}</li>
+          </ul>
+        </div>
+        <div class="tab-pane" id="map">
+          <div id="map-container"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"></div>
+  </div>
+</div>

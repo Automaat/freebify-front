@@ -57,6 +57,11 @@ var app = angular
         controller: 'OffershowCtrl',
         controllerAs: 'offerShow'
       })
+      .when('/rideshow/:id', {
+        templateUrl: 'views/rideshow.html',
+        controller: 'RideshowCtrl',
+        controllerAs: 'rideShow'
+      })
       .when('/userShow/:id', {
         templateUrl: 'views/usershow.html',
         controller: 'UsershowCtrl',
@@ -74,7 +79,7 @@ var app = angular
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
   });
 
-app.constant('serverAddress', 'http://localhost:8082');
+app.constant('serverAddress', 'http://vps259039.ovh.net:8082');
 
 app.run(function ($rootScope, $localStorage, $http, serverAddress) {
   $rootScope.authenticated = $localStorage.authenticated;
