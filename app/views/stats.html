@@ -1,14 +1,13 @@
 <div class="container">
   <h2>Core Statistisc</h2>
   <ul class="nav nav-tabs top-buffer">
-    <li class="active"><a data-toggle="tab" data-target="#menu0">Top users</a></li>
+    <li class="active"><a data-toggle="tab" data-target="#menu2">Savings</a></li>
     <li><a data-toggle="tab" data-target="#menu1">Success comparison</a></li>
-    <li><a data-toggle="tab" data-target="#menu2">Menu 2</a></li>
-    <li><a data-toggle="tab" data-target="#menu3">Menu 3</a></li>
+    <li><a data-toggle="tab" data-target="#menu0">Top users</a></li>
   </ul>
 
   <div class="tab-content">
-    <div id="menu0" class="tab-pane fade in active">
+    <div id="menu0" class="tab-pane fade">
       <div class="row top-buffer">
         <a ng-repeat="user in topUsers" ng-href="/#/userShow/{{user.ownerId}}" class="list-group-item">
           <div class="row con">
@@ -32,13 +31,14 @@
         <highchart id="chart1" config="chartConfig"></highchart>
       </div>
     </div>
-    <div id="menu2" class="tab-pane fade">
-      <h3>Menu 2</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      <h3>Menu 3</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    <div id="menu2" class="tab-pane fade in active">
+      <div class="jumbotron top-buffer">
+      <p class="top-buffer">
+        Thanks to this app your employees ride <strong>{{distanceStats.kilometers}}</strong> kilometers.<br>
+        They consumed <strong>{{distanceStats.fuel}}</strong> liters of fuel and They spend <strong>{{distanceStats.price}}</strong> zlotych. <br>
+        But what is most important they saved <strong>{{distanceStats.saved}}</strong> zlotych and <strong>{{distanceStats.savedFuel}}</strong> liters of fuel.
+      </p>
+      </div>
     </div>
   </div>
 </div>
